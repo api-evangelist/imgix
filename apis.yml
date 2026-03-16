@@ -1,30 +1,45 @@
 aid: imgix
 name: imgix
 description: >-
-  The imgix Rendering API can optimize your images, improve your page speed, and
-  make it easy to create responsive designs. 
+  imgix is a real-time image processing and CDN service that helps developers
+  optimize images, improve page speed, and build responsive designs. The imgix
+  Rendering API provides powerful image transformation and optimization
+  capabilities directly through URL parameters.
 type: Index
-position: Consumer
-access: 3rd-Party
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 tags:
-  - API
+  - Image Processing
+  - CDN
+  - Image Optimization
+  - Media
 created: '2024-11-13'
-modified: '2024-11-13'
+modified: '2026-03-16'
 url: https://raw.githubusercontent.com/api-search/imgix/refs/heads/main/apis.yml
 specificationVersion: '0.19'
 apis:
-  - aid: imgix:imgix
-    name: imgix
+  - aid: imgix:imgix-rendering-api
+    name: imgix Rendering API
     description: >-
       The imgix Rendering API can optimize your images, improve your page speed,
-      and make it easy to create responsive designs. 
-    humanURL: ' https://docs.imgix.com/en-US/apis/rendering/overview'
+      and make it easy to create responsive designs. Images are processed and
+      delivered in real-time via URL parameters.
+    humanURL: https://docs.imgix.com/en-US/apis/rendering/overview
     tags:
-      - API
+      - Image Processing
+      - Image Optimization
+      - CDN
     properties:
       - type: Documentation
-        url: ' https://docs.imgix.com/en-US/apis/rendering/overview'
+        url: https://docs.imgix.com/en-US/apis/rendering/overview
+      - type: Getting Started
+        url: https://docs.imgix.com/
+common:
+  - type: Website
+    url: https://imgix.com/
+  - type: Documentation
+    url: https://docs.imgix.com/
+  - type: Support
+    url: https://support.imgix.com/
 maintainers:
   - FN: Kin Lane
-    email: info@apievangelist.com
+    email: kin@apievangelist.com
