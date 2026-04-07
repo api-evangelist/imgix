@@ -8,9 +8,9 @@ description: >-
 type: Index
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 tags:
-  - Image Processing
   - CDN
   - Image Optimization
+  - Image Processing
   - Media
 created: '2024-11-13'
 modified: '2026-03-16'
@@ -25,9 +25,9 @@ apis:
       delivered in real-time via URL parameters.
     humanURL: https://docs.imgix.com/en-US/apis/rendering/overview
     tags:
-      - Image Processing
-      - Image Optimization
       - CDN
+      - Image Optimization
+      - Image Processing
     properties:
       - type: Documentation
         url: https://docs.imgix.com/en-US/apis/rendering/overview
