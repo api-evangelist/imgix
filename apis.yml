@@ -1,5 +1,5 @@
 aid: imgix
-name: imgix
+name: Imgix
 description: >-
   imgix is a real-time image processing and CDN service that helps developers
   optimize images, improve page speed, and build responsive designs. The imgix
@@ -18,7 +18,7 @@ url: https://raw.githubusercontent.com/api-search/imgix/refs/heads/main/apis.yml
 specificationVersion: '0.19'
 apis:
   - aid: imgix:imgix-rendering-api
-    name: imgix Rendering API
+    name: Imgix Rendering API
     description: >-
       The imgix Rendering API can optimize your images, improve your page speed,
       and make it easy to create responsive designs. Images are processed and
