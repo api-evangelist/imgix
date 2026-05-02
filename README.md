@@ -16,7 +16,7 @@ imgix is a real-time image processing and CDN service that helps developers opti
 ## Timestamps
 
 - **Created:** 2024-11-13 
-- **Modified:** 2026-03-16 
+- **Modified:** 2026-04-28 
 
 ## APIs
 
