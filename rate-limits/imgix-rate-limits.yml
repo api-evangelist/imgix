@@ -1,0 +1,32 @@
+specification: API Commons Rate Limits
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/RateLimits
+provider: imgix
+providerId: imgix
+created: '2026-05-04'
+modified: '2026-05-04'
+reconciled: true
+tags:
+  - Rate Limiting
+  - Image CDN
+description: imgix Management API rate limits per source.
+sources:
+  - https://imgix.com/pricing
+  - https://docs.imgix.com/apis/management
+headers: {}
+responseCodes:
+  throttled: 429
+limits:
+  - name: Management API
+    scope: source
+    metric: requests_per_second
+    limit: 100
+    timeFrame: second
+  - name: Render API (URLs)
+    scope: source
+    metric: requests
+    limit: unmetered (counted in credits)
+  - name: Sources per account
+    scope: account
+    metric: sources
+    limit: varies by plan

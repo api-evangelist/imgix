@@ -1,0 +1,236 @@
+specification: API Commons Plans
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
+provider: imgix
+providerId: imgix
+created: '2026-05-04'
+modified: '2026-05-04'
+reconciled: true
+tags:
+  - Image CDN
+  - Media
+  - Video
+description: imgix credit-based plans across Starter / Basic / Midrange / Growth / Growth Plus / Enterprise.
+sources:
+  - https://imgix.com/pricing
+plans:
+  - id: imgix-starter
+    name: Starter
+    type: paid
+    description: $25/mo or $250/yr; 100 credits/mo; $0.25/extra credit.
+    entries:
+      - label: Monthly
+        name: monthly
+        type: subscription
+        metric: month
+        limit: -1
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '25.00'
+        userMultiplied: false
+      - label: Annual
+        name: annual
+        type: subscription
+        metric: year
+        limit: -1
+        timeFrame: year
+        geo: global
+        unit: 1
+        price: '250.00'
+        userMultiplied: false
+      - label: Credits
+        name: credits
+        type: quota
+        metric: credit
+        limit: 100
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '0.00'
+        userMultiplied: false
+      - label: Extra credit
+        name: credit_extra
+        type: metered
+        metric: credit
+        limit: -1
+        timeFrame: usage
+        geo: global
+        unit: 1
+        price: '0.25'
+        userMultiplied: false
+    elements:
+      - name: Up to 50 GB storage
+      - name: Up to 100 GB delivery bandwidth
+  - id: imgix-basic
+    name: Basic
+    type: paid
+    description: $75/mo or $750/yr; 375 credits/mo.
+    entries:
+      - label: Monthly
+        name: monthly
+        type: subscription
+        metric: month
+        limit: -1
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '75.00'
+        userMultiplied: false
+      - label: Credits
+        name: credits
+        type: quota
+        metric: credit
+        limit: 375
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '0.00'
+        userMultiplied: false
+      - label: Extra credit
+        name: credit_extra
+        type: metered
+        metric: credit
+        limit: -1
+        timeFrame: usage
+        geo: global
+        unit: 1
+        price: '0.20'
+        userMultiplied: false
+    elements:
+      - name: 187.5 GB storage
+      - name: 375 GB bandwidth
+  - id: imgix-midrange
+    name: Midrange
+    type: paid
+    description: $150/mo; 830 credits/mo.
+    entries:
+      - label: Monthly
+        name: monthly
+        type: subscription
+        metric: month
+        limit: -1
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '150.00'
+        userMultiplied: false
+      - label: Credits
+        name: credits
+        type: quota
+        metric: credit
+        limit: 830
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '0.00'
+        userMultiplied: false
+      - label: Extra credit
+        name: credit_extra
+        type: metered
+        metric: credit
+        limit: -1
+        timeFrame: usage
+        geo: global
+        unit: 1
+        price: '0.18'
+        userMultiplied: false
+    elements:
+      - name: 415 GB storage
+      - name: 830 GB bandwidth
+  - id: imgix-growth
+    name: Growth
+    type: paid
+    description: $300/mo; 1,875 credits/mo.
+    entries:
+      - label: Monthly
+        name: monthly
+        type: subscription
+        metric: month
+        limit: -1
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '300.00'
+        userMultiplied: false
+      - label: Credits
+        name: credits
+        type: quota
+        metric: credit
+        limit: 1875
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '0.00'
+        userMultiplied: false
+      - label: Extra credit
+        name: credit_extra
+        type: metered
+        metric: credit
+        limit: -1
+        timeFrame: usage
+        geo: global
+        unit: 1
+        price: '0.16'
+        userMultiplied: false
+    elements:
+      - name: 937.5 GB storage
+      - name: 1,875 GB bandwidth
+  - id: imgix-growth-plus
+    name: Growth Plus
+    type: paid
+    description: $500/mo; 3,570 credits/mo.
+    entries:
+      - label: Monthly
+        name: monthly
+        type: subscription
+        metric: month
+        limit: -1
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '500.00'
+        userMultiplied: false
+      - label: Credits
+        name: credits
+        type: quota
+        metric: credit
+        limit: 3570
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '0.00'
+        userMultiplied: false
+      - label: Extra credit
+        name: credit_extra
+        type: metered
+        metric: credit
+        limit: -1
+        timeFrame: usage
+        geo: global
+        unit: 1
+        price: '0.12'
+        userMultiplied: false
+    elements:
+      - name: 1.785 TB storage
+      - name: 3.57 TB bandwidth
+  - id: imgix-enterprise
+    name: Enterprise
+    type: enterprise
+    description: Custom pricing.
+    entries:
+      - label: Annual (custom)
+        name: annual
+        type: subscription
+        metric: year
+        limit: -1
+        timeFrame: year
+        geo: global
+        unit: 1
+        price: custom
+        userMultiplied: false
+    elements:
+      - name: All credits needed
+      - name: Custom workflows
+      - name: Advanced controls
+      - name: Dedicated support
