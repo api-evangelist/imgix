@@ -27,7 +27,7 @@ apis:
     properties:
       - type: Documentation
         url: https://docs.imgix.com/en-US/apis/rendering/overview
-      - type: Getting Started
+      - type: GettingStarted
         url: https://docs.imgix.com/
 common:
   - type: Website
