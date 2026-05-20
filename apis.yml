@@ -30,6 +30,10 @@ apis:
       - type: GettingStarted
         url: https://docs.imgix.com/
 common:
+  - type: GitHubOrganization
+    url: https://github.com/imgix
+  - type: LinkedIn
+    url: https://www.linkedin.com/company/imgix
   - type: Website
     url: https://imgix.com/
   - type: Documentation
