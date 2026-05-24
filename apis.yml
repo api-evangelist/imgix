@@ -61,6 +61,8 @@ common:
     sources:
       - https://imgix.com/pricing
     updated: '2026-05-04'
+  - type: LLMsTxt
+    url: https://docs.imgix.com/llms.txt
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
