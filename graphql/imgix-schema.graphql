@@ -1,0 +1,701 @@
+"""
+Imgix GraphQL Schema
+Real-time image processing and CDN API
+Reference: https://docs.imgix.com/apis
+"""
+
+# ─── Enumerations ───────────────────────────────────────────────────────────
+
+enum SourceType {
+  S3
+  GCS
+  AZURE
+  WEB_PROXY
+  S3_COMPATIBLE
+}
+
+enum ResizeMode {
+  CROP
+  CLIP
+  FILL
+  FILLMAX
+  MAX
+  MIN
+  SCALE
+  THUMB
+}
+
+enum CropMode {
+  TOP
+  BOTTOM
+  LEFT
+  RIGHT
+  FACES
+  FOCALPOINT
+  EDGES
+  ENTROPY
+}
+
+enum CropFocus {
+  CENTER
+  TOP
+  BOTTOM
+  LEFT
+  RIGHT
+  TOPLEFT
+  TOPRIGHT
+  BOTTOMLEFT
+  BOTTOMRIGHT
+  FACES
+  FOCALPOINT
+  ENTROPY
+}
+
+enum FitMode {
+  CLAMP
+  CLIP
+  CROP
+  FACEAREA
+  FILL
+  FILLMAX
+  MAX
+  MIN
+  SCALE
+}
+
+enum FormatDetails {
+  JPG
+  PNG
+  WEBP
+  AVIF
+  GIF
+  TIFF
+  MP4
+  JSON
+}
+
+enum RenderingMode {
+  DEFAULT
+  PASSTHROUGH
+  BYPASS
+}
+
+enum AutoOptimize {
+  COMPRESS
+  ENHANCE
+  FORMAT
+  REDEYE
+}
+
+# ─── Source Types ────────────────────────────────────────────────────────────
+
+"""S3 origin configuration for an imgix source."""
+type SourceS3 {
+  bucket: String!
+  prefix: String
+  region: String
+  accessKeyId: String
+  secretAccessKey: String
+}
+
+"""Google Cloud Storage origin configuration."""
+type SourceGCS {
+  bucket: String!
+  prefix: String
+  enabled: SourceGCSEnabled
+}
+
+"""GCS enabled/service-account details."""
+type SourceGCSEnabled {
+  serviceAccountEmail: String
+  privateKey: String
+}
+
+"""Azure Blob Storage origin configuration."""
+type SourceAzure {
+  storageAccount: String!
+  container: String!
+  sasToken: String
+}
+
+"""Web Proxy origin — imgix fetches images from arbitrary HTTPS URLs."""
+type SourceWebProxy {
+  allowedDomains: [String!]
+  httpsOnly: Boolean
+}
+
+"""Structured URL configuration for a source."""
+type SourceURLConfig {
+  customDomains: [String!]
+  defaultParams: String
+  useHTTPS: Boolean
+  crossdomainXMLEnabled: Boolean
+}
+
+"""Canonical URL record for a source."""
+type SourceURL {
+  domain: String!
+  scheme: String
+  config: SourceURLConfig
+}
+
+"""Detailed configuration of an imgix source."""
+type SourceDetails {
+  originType: SourceType!
+  s3: SourceS3
+  gcs: SourceGCS
+  azure: SourceAzure
+  webProxy: SourceWebProxy
+  urls: [SourceURL!]
+  secureURLToken: String
+  enabled: Boolean!
+  deploymentStatus: String
+}
+
+"""An imgix image source (origin)."""
+type Source {
+  id: ID!
+  name: String!
+  details: SourceDetails!
+  createdAt: String
+  updatedAt: String
+  stats: SourceStats
+  webhooks: [Webhook!]
+}
+
+# ─── Image Transformation Types ─────────────────────────────────────────────
+
+"""Pixel width for the output image."""
+type Width {
+  value: Int!
+  auto: Boolean
+}
+
+"""Pixel height for the output image."""
+type Height {
+  value: Int!
+  auto: Boolean
+}
+
+"""Device pixel ratio multiplier."""
+type DPR {
+  value: Float!
+}
+
+"""Output quality (1–100) for lossy formats."""
+type Quality {
+  value: Int!
+  lossless: Boolean
+}
+
+"""Output file format."""
+type Format {
+  value: FormatDetails!
+  lossless: Boolean
+  progressive: Boolean
+}
+
+"""Compression level for lossless formats."""
+type Compression {
+  level: Int
+}
+
+"""Progressive JPEG rendering hint."""
+type Progressive {
+  enabled: Boolean!
+}
+
+"""Resize transform parameters."""
+type Resize {
+  width: Int
+  height: Int
+  mode: ResizeMode
+  fit: FitMode
+  dpr: Float
+}
+
+"""Crop transform parameters."""
+type Crop {
+  mode: CropMode
+  focus: CropFocus
+  x: Float
+  y: Float
+  width: Int
+  height: Int
+  focalPointX: Float
+  focalPointY: Float
+  focalPointZoom: Float
+}
+
+"""Fit mode configuration."""
+type Fit {
+  mode: FitMode!
+  fillColor: String
+}
+
+"""Auto optimization flags for a rendered image."""
+type AutoCompress {
+  enabled: Boolean!
+}
+
+"""Auto format selection (WebP, AVIF, etc.)."""
+type AutoFormat {
+  enabled: Boolean!
+  preferAvif: Boolean
+}
+
+"""Auto enhancement using imgix's AI pipeline."""
+type AutoEnhance {
+  enabled: Boolean!
+}
+
+# ─── Color Adjustments ───────────────────────────────────────────────────────
+
+"""Saturation adjustment (-100 to 100)."""
+type Saturation {
+  value: Int!
+}
+
+"""Contrast adjustment (-100 to 100)."""
+type Contrast {
+  value: Int!
+}
+
+"""Brightness adjustment (-100 to 100)."""
+type Brightness {
+  value: Int!
+}
+
+"""Hue rotation in degrees (0–360)."""
+type Hue {
+  degrees: Int!
+}
+
+"""Vibrance adjustment (-100 to 100)."""
+type Vibrance {
+  value: Int!
+}
+
+"""Highlight clipping adjustment (-100 to 0)."""
+type Highlight {
+  value: Int!
+}
+
+"""Shadow boost adjustment (0 to 100)."""
+type Shadow {
+  value: Int!
+}
+
+"""Sharpness amount (0–100)."""
+type Sharpness {
+  value: Int!
+  radius: Float
+}
+
+"""Unsharp mask parameters."""
+type Unsharp {
+  radius: Float
+  sigma: Float
+  gain: Float
+  threshold: Float
+}
+
+"""Gaussian blur radius."""
+type Blur {
+  radius: Int!
+}
+
+"""Full Gaussian blur parameters."""
+type Gaussian {
+  radius: Int!
+  sigma: Float
+}
+
+# ─── Visual Effects ──────────────────────────────────────────────────────────
+
+"""Radial gradient overlay."""
+type RadialGradient {
+  color1: String!
+  color2: String!
+  radius: Float
+  x: Float
+  y: Float
+}
+
+"""Linear gradient overlay."""
+type LinearGradient {
+  color1: String!
+  color2: String!
+  angle: Float
+}
+
+"""Padding added around the image canvas."""
+type Padding {
+  top: Int
+  right: Int
+  bottom: Int
+  left: Int
+  color: String
+}
+
+"""Border drawn around the image."""
+type Border {
+  width: Int!
+  color: String!
+}
+
+# ─── Watermarks / Marks ──────────────────────────────────────────────────────
+
+"""Overlay mark (watermark image or text) applied to an image."""
+type Mark {
+  url: String
+  x: Float
+  y: Float
+  width: Int
+  height: Int
+  fit: FitMode
+  align: String
+  alpha: Int
+  scale: Float
+  pad: Int
+}
+
+"""Watermark configuration alias (convenience wrapper over Mark)."""
+type Watermark {
+  mark: Mark!
+  opacity: Float
+}
+
+# ─── Palette and Color Extraction ────────────────────────────────────────────
+
+"""A single extracted color swatch."""
+type Colors {
+  hex: String!
+  red: Int
+  green: Int
+  blue: Int
+  percentage: Float
+}
+
+"""Palette extracted from an image."""
+type Palette {
+  dominantColor: Colors
+  colors: [Colors!]
+  backgroundColor: Colors
+  foregroundColor: Colors
+}
+
+# ─── Face Detection ──────────────────────────────────────────────────────────
+
+"""Zero-based index of a detected face."""
+type FaceIndex {
+  index: Int!
+  count: Int
+}
+
+"""Bounding rectangle of a detected face."""
+type FaceRect {
+  x: Float!
+  y: Float!
+  width: Float!
+  height: Float!
+  faceIndex: FaceIndex
+}
+
+# ─── Security ────────────────────────────────────────────────────────────────
+
+"""Secure URL token used to sign imgix URLs."""
+type SecurityKey {
+  token: String!
+  sourceId: ID!
+  createdAt: String
+}
+
+"""Short-lived access token."""
+type Token {
+  value: String!
+  expiresAt: String
+}
+
+"""API key for authenticating to the imgix Management API."""
+type APIKey {
+  id: ID!
+  label: String
+  key: String!
+  createdAt: String
+  lastUsedAt: String
+}
+
+# ─── Rendering and Cache ─────────────────────────────────────────────────────
+
+"""Rendering mode hint for imgix."""
+type Cache {
+  ttl: Int
+  staleWhileRevalidate: Int
+  noStore: Boolean
+}
+
+"""HTTP cache headers returned with an imgix response."""
+type CacheHeaders {
+  cacheControl: String
+  etag: String
+  lastModified: String
+  expires: String
+}
+
+# ─── Stats / Analytics ───────────────────────────────────────────────────────
+
+"""Usage statistics for a single imgix source."""
+type SourceStats {
+  sourceId: ID!
+  period: String
+  requestCount: Int
+  bandwidthBytes: Float
+  uniqueAssets: Int
+  cacheHitRate: Float
+  originRequests: Int
+}
+
+"""Per-asset request and bandwidth statistics."""
+type AssetStats {
+  sourceId: ID!
+  path: String!
+  period: String
+  requestCount: Int
+  bandwidthBytes: Float
+  cacheHitRate: Float
+  transformCount: Int
+}
+
+"""Aggregate statistics wrapper."""
+type Stats {
+  source: SourceStats
+  assets: [AssetStats!]
+  totalBandwidthBytes: Float
+  totalRequests: Int
+}
+
+# ─── Webhooks ────────────────────────────────────────────────────────────────
+
+"""A registered imgix webhook for source or asset events."""
+type Webhook {
+  id: ID!
+  url: String!
+  events: [String!]!
+  sourceId: ID
+  secret: String
+  enabled: Boolean!
+  createdAt: String
+}
+
+# ─── Image Composite Types ───────────────────────────────────────────────────
+
+"""Full set of imgix transform parameters applied to a request."""
+type ImageTransform {
+  resize: Resize
+  crop: Crop
+  fit: Fit
+  dpr: DPR
+  quality: Quality
+  format: Format
+  compression: Compression
+  progressive: Progressive
+  autoOptimize: [AutoOptimize]
+  autoCompress: AutoCompress
+  autoFormat: AutoFormat
+  autoEnhance: AutoEnhance
+  saturation: Saturation
+  contrast: Contrast
+  brightness: Brightness
+  hue: Hue
+  vibrance: Vibrance
+  highlight: Highlight
+  shadow: Shadow
+  sharpness: Sharpness
+  unsharp: Unsharp
+  blur: Blur
+  gaussian: Gaussian
+  radialGradient: RadialGradient
+  linearGradient: LinearGradient
+  padding: Padding
+  border: Border
+  mark: Mark
+  watermark: Watermark
+}
+
+"""Canonical URL produced by imgix for a transformed image."""
+type ImageURL {
+  rendered: String!
+  signed: String
+  params: String
+}
+
+"""Detailed metadata about an imgix-served image."""
+type ImageDetails {
+  width: Int
+  height: Int
+  format: String
+  sizeBytes: Int
+  contentType: String
+  cacheHeaders: CacheHeaders
+  renderingMode: RenderingMode
+  faceRects: [FaceRect]
+  palette: Palette
+  transform: ImageTransform
+}
+
+"""A processed image entity returned from imgix."""
+type Image {
+  url: ImageURL!
+  source: Source
+  details: ImageDetails
+  stats: AssetStats
+}
+
+# ─── Input Types ─────────────────────────────────────────────────────────────
+
+input SourceS3Input {
+  bucket: String!
+  prefix: String
+  region: String
+  accessKeyId: String
+  secretAccessKey: String
+}
+
+input SourceGCSInput {
+  bucket: String!
+  prefix: String
+  serviceAccountEmail: String
+  privateKey: String
+}
+
+input SourceAzureInput {
+  storageAccount: String!
+  container: String!
+  sasToken: String
+}
+
+input SourceWebProxyInput {
+  allowedDomains: [String!]
+  httpsOnly: Boolean
+}
+
+input CreateSourceInput {
+  name: String!
+  type: SourceType!
+  s3: SourceS3Input
+  gcs: SourceGCSInput
+  azure: SourceAzureInput
+  webProxy: SourceWebProxyInput
+  customDomains: [String!]
+  enabled: Boolean
+}
+
+input UpdateSourceInput {
+  name: String
+  s3: SourceS3Input
+  gcs: SourceGCSInput
+  azure: SourceAzureInput
+  webProxy: SourceWebProxyInput
+  customDomains: [String!]
+  enabled: Boolean
+}
+
+input CreateWebhookInput {
+  url: String!
+  events: [String!]!
+  sourceId: ID
+  secret: String
+  enabled: Boolean
+}
+
+input ImageTransformInput {
+  width: Int
+  height: Int
+  fit: FitMode
+  crop: CropMode
+  cropFocus: CropFocus
+  dpr: Float
+  quality: Int
+  format: FormatDetails
+  auto: [AutoOptimize]
+  blur: Int
+  saturation: Int
+  contrast: Int
+  brightness: Int
+  hue: Int
+  vibrance: Int
+  highlight: Int
+  shadow: Int
+  sharpness: Int
+  markUrl: String
+  markAlign: String
+  markAlpha: Int
+  borderWidth: Int
+  borderColor: String
+  padTop: Int
+  padRight: Int
+  padBottom: Int
+  padLeft: Int
+  padColor: String
+}
+
+# ─── Root Types ──────────────────────────────────────────────────────────────
+
+type Query {
+  """Fetch a single imgix source by ID."""
+  source(id: ID!): Source
+
+  """List all imgix sources for the authenticated account."""
+  sources: [Source!]!
+
+  """Inspect a rendered imgix image URL and its metadata."""
+  image(url: String!, transform: ImageTransformInput): Image
+
+  """Extract color palette from an image."""
+  palette(url: String!, colors: Int): Palette
+
+  """Detect faces in an image and return bounding rectangles."""
+  faceDetection(url: String!): [FaceRect!]
+
+  """Retrieve usage statistics for a source."""
+  stats(sourceId: ID!, range: String): Stats
+
+  """Retrieve per-asset statistics."""
+  assetStats(sourceId: ID!, path: String!, range: String): AssetStats
+
+  """List all registered webhooks."""
+  webhooks(sourceId: ID): [Webhook!]!
+
+  """List API keys for the account."""
+  apiKeys: [APIKey!]!
+
+  """Retrieve the secure URL token for a source."""
+  securityKey(sourceId: ID!): SecurityKey
+}
+
+type Mutation {
+  """Create a new imgix image source."""
+  createSource(input: CreateSourceInput!): Source!
+
+  """Update an existing imgix source."""
+  updateSource(id: ID!, input: UpdateSourceInput!): Source!
+
+  """Delete an imgix source."""
+  deleteSource(id: ID!): Boolean!
+
+  """Purge a cached asset from a source."""
+  purgeAsset(sourceId: ID!, path: String!): Boolean!
+
+  """Register a new webhook."""
+  createWebhook(input: CreateWebhookInput!): Webhook!
+
+  """Delete a webhook."""
+  deleteWebhook(id: ID!): Boolean!
+
+  """Rotate the API key."""
+  rotateAPIKey(id: ID!): APIKey!
+
+  """Regenerate the secure URL token for a source."""
+  regenerateSecurityKey(sourceId: ID!): SecurityKey!
+}
