@@ -1,0 +1,122 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "imgix Management API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "List sources",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://api.imgix.com/api/v1/sources"
+      },
+      "docs": "List sources"
+    },
+    {
+      "info": {
+        "name": "Create a source",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "https://api.imgix.com/api/v1/sources",
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      },
+      "docs": "Create a source"
+    },
+    {
+      "info": {
+        "name": "Retrieve a source",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://api.imgix.com/api/v1/sources/:source_id",
+        "params": [
+          {
+            "name": "source_id",
+            "value": "",
+            "type": "path"
+          }
+        ]
+      },
+      "docs": "Retrieve a source"
+    },
+    {
+      "info": {
+        "name": "Update a source",
+        "type": "http"
+      },
+      "http": {
+        "method": "PATCH",
+        "url": "https://api.imgix.com/api/v1/sources/:source_id",
+        "params": [
+          {
+            "name": "source_id",
+            "value": "",
+            "type": "path"
+          }
+        ],
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      },
+      "docs": "Update a source"
+    },
+    {
+      "info": {
+        "name": "Purge a URL from the imgix cache",
+        "type": "http"
+      },
+      "http": {
+        "method": "POST",
+        "url": "https://api.imgix.com/api/v1/sources/:source_id/purge",
+        "params": [
+          {
+            "name": "source_id",
+            "value": "",
+            "type": "path"
+          }
+        ],
+        "body": {
+          "type": "json",
+          "data": "{}"
+        }
+      },
+      "docs": "Purge a URL from the imgix cache"
+    },
+    {
+      "info": {
+        "name": "List assets for a source",
+        "type": "http"
+      },
+      "http": {
+        "method": "GET",
+        "url": "https://api.imgix.com/api/v1/sources/:source_id/assets",
+        "params": [
+          {
+            "name": "source_id",
+            "value": "",
+            "type": "path"
+          }
+        ]
+      },
+      "docs": "List assets for a source"
+    }
+  ],
+  "bundled": true
+}
