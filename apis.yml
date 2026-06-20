@@ -5,7 +5,7 @@ description: imgix is a real-time image processing and CDN service that helps de
   API provides powerful image transformation and optimization capabilities directly
   through URL parameters.
 type: Index
-image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 tags:
 - CDN
 - Image Optimization
