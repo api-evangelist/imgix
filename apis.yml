@@ -34,6 +34,10 @@ apis:
   - url: graphql/imgix-graphql.md
     type: GraphQL
 common:
+- type: DomainSecurity
+  url: security/imgix-domain-security.yml
+- type: Authentication
+  url: authentication/imgix-authentication.yml
 - type: GitHubOrganization
   url: https://github.com/imgix
 - type: LinkedIn
@@ -67,6 +71,8 @@ common:
   updated: '2026-05-04'
 - type: LlmsText
   url: https://docs.imgix.com/llms.txt
+- url: https://imgix.com/blog
+  type: Blog
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
