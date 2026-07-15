@@ -34,6 +34,8 @@ apis:
   - url: graphql/imgix-graphql.md
     type: GraphQL
 common:
+- type: AgenticAccess
+  url: agentic-access/imgix-agentic-access.yml
 - type: DomainSecurity
   url: security/imgix-domain-security.yml
 - type: Authentication
