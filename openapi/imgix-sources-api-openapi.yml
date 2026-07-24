@@ -1,33 +1,34 @@
 openapi: 3.1.0
 info:
-  title: imgix Management API
-  description: |
-    imgix Management API for administering sources, purges, asset manager,
+  title: imgix Management Sources API
+  description: 'imgix Management API for administering sources, purges, asset manager,
+
     and reporting. Requests use the JSON:API content type
+
     `application/vnd.api+json`.
-  version: "1.0"
+
+    '
+  version: '1.0'
   contact:
     name: imgix Support
     url: https://docs.imgix.com/en-US/apis/management/overview
 servers:
-  - url: https://api.imgix.com
-    description: Production
+- url: https://api.imgix.com
+  description: Production
 security:
-  - bearerAuth: []
-components:
-  securitySchemes:
-    bearerAuth:
-      type: http
-      scheme: bearer
-      description: Bearer API key from the imgix dashboard.
+- bearerAuth: []
+tags:
+- name: Sources
 paths:
   /api/v1/sources:
     get:
       summary: List sources
       operationId: listSources
       responses:
-        "200":
+        '200':
           description: A list of sources
+      tags:
+      - Sources
     post:
       summary: Create a source
       operationId: createSource
@@ -38,21 +39,25 @@ paths:
             schema:
               type: object
       responses:
-        "201":
+        '201':
           description: Source created
+      tags:
+      - Sources
   /api/v1/sources/{source_id}:
     parameters:
-      - name: source_id
-        in: path
-        required: true
-        schema:
-          type: string
+    - name: source_id
+      in: path
+      required: true
+      schema:
+        type: string
     get:
       summary: Retrieve a source
       operationId: getSource
       responses:
-        "200":
+        '200':
           description: Source details
+      tags:
+      - Sources
     patch:
       summary: Update a source
       operationId: updateSource
@@ -63,15 +68,17 @@ paths:
             schema:
               type: object
       responses:
-        "200":
+        '200':
           description: Source updated
+      tags:
+      - Sources
   /api/v1/sources/{source_id}/purge:
     parameters:
-      - name: source_id
-        in: path
-        required: true
-        schema:
-          type: string
+    - name: source_id
+      in: path
+      required: true
+      schema:
+        type: string
     post:
       summary: Purge a URL from the imgix cache
       operationId: purgeAsset
@@ -95,18 +102,28 @@ paths:
                           type: string
                           format: uri
       responses:
-        "200":
+        '200':
           description: Purge accepted
+      tags:
+      - Sources
   /api/v1/sources/{source_id}/assets:
     parameters:
-      - name: source_id
-        in: path
-        required: true
-        schema:
-          type: string
+    - name: source_id
+      in: path
+      required: true
+      schema:
+        type: string
     get:
       summary: List assets for a source
       operationId: listAssets
       responses:
-        "200":
+        '200':
           description: A list of assets
+      tags:
+      - Sources
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: Bearer API key from the imgix dashboard.
