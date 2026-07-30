@@ -5,7 +5,20 @@ description: imgix is a real-time image processing and CDN service that helps de
   API provides powerful image transformation and optimization capabilities directly
   through URL parameters.
 type: Index
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: paid
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Paid · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/imgix.png
 tags:
 - CDN
 - Image Optimization
@@ -18,9 +31,9 @@ specificationVersion: '0.19'
 apis:
 - aid: imgix:imgix-rendering-api
   name: Imgix Rendering API
-  description: The imgix Rendering API can optimize your images, improve your page
-    speed, and make it easy to create responsive designs. Images are processed and
-    delivered in real-time via URL parameters.
+  description: >-
+    The imgix Rendering API can optimize your images, improve your page speed, and make it easy to create
+    responsive designs. Images are processed and delivered in real-time via URL parameters.
   humanURL: https://docs.imgix.com/en-US/apis/rendering/overview
   tags:
   - CDN
@@ -33,6 +46,15 @@ apis:
     url: https://docs.imgix.com/
   - url: graphql/imgix-graphql.md
     type: GraphQL
+- aid: imgix:imgix-sources-api
+  name: Imgix Sources API
+  description: The Sources API from Imgix — 4 operation(s) for sources.
+  humanURL: https://docs.imgix.com/en-US/apis/rendering/overview
+  tags:
+  - Sources
+  properties:
+  - type: OpenAPI
+    url: openapi/imgix-sources-api-openapi.yml
 common:
 - type: AgenticAccess
   url: agentic-access/imgix-agentic-access.yml
