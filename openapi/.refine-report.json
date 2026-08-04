@@ -1,0 +1,14 @@
+{
+  "provider": "imgix",
+  "sources": [
+    "imgix-sources-api-openapi.yml"
+  ],
+  "outputs": [
+    "imgix-sources-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
