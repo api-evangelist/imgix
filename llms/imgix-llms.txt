@@ -1,0 +1,157 @@
+# Imgix Documentation
+
+> Official technical documentation for Imgix, a visual media platform that provides real-time image and video processing, optimization, and delivery via a URL-based API. For product information, pricing, and solutions, see [imgix.com/llms.txt](https://www.imgix.com/llms.txt).
+
+Imgix transforms images and video on the fly by appending query parameters to URLs. The Rendering API offers 180+ parameters for resizing, cropping, formatting, compositing, AI transformations, and more. The Video API handles short-form and long-form video. The Management API provides programmatic control over sources, assets, and cache purging.
+
+Example: `https://your-subdomain.imgix.net/image.jpg?w=400&h=300&fit=crop&auto=format`
+
+## Getting Started
+
+- [Quick Start Guide](https://docs.imgix.com/en-US/getting-started/setup/quick-start-guide): Get up and running with Imgix in minutes
+- [Imgix Overview](https://docs.imgix.com/en-US/references/imgix-overview): Complete product overview and how Imgix works
+- [Setting Up Asset Storage](https://docs.imgix.com/en-US/getting-started/setup/setting-up-asset-storage): Configure your image storage (S3, Azure, GCS, and more)
+- [Serving Assets](https://docs.imgix.com/en-US/getting-started/setup/serving-assets): How to serve optimized images through Imgix
+
+## APIs
+
+- [Rendering API Overview](https://docs.imgix.com/en-US/apis/rendering/overview): URL-based image transformation API with 180+ parameters for resizing, cropping, formatting, compositing, and more
+- [Video API Overview](https://docs.imgix.com/en-US/apis/video/overview): URL-based video optimization and transformation API for short-form and long-form video
+- [Management API Overview](https://docs.imgix.com/en-US/apis/management/overview): REST API (JSON:API spec) for programmatically managing sources, assets, cache purging, and analytics
+
+## Rendering API - Parameter Categories
+
+- [Size](https://docs.imgix.com/en-US/apis/rendering/size): Width, height, aspect ratio, fit modes, and resizing parameters
+- [Adjustment](https://docs.imgix.com/en-US/apis/rendering/adjustment): Brightness, contrast, saturation, hue shift, exposure, and other image adjustments
+- [Format](https://docs.imgix.com/en-US/apis/rendering/format): Output format, quality, compression, and color space controls
+- [Automatic](https://docs.imgix.com/en-US/apis/rendering/automatic): Automatic image optimization including format selection and compression
+- [Fill](https://docs.imgix.com/en-US/apis/rendering/fill): Fill color, generative fill, and padding options
+- [Focal Point Crop](https://docs.imgix.com/en-US/apis/rendering/focal-point-crop): Smart cropping by focal point coordinates
+- [Face Detection](https://docs.imgix.com/en-US/apis/rendering/face-detection): Face-aware cropping and operations
+- [Object Manipulation](https://docs.imgix.com/en-US/apis/rendering/object-manipulation): AI-powered object detection and removal
+- [Super Resolution](https://docs.imgix.com/en-US/apis/rendering/super-resolution): AI upscaling for higher resolution output
+- [Generative AI Endpoint](https://docs.imgix.com/en-US/apis/rendering/generative-ai-endpoint): AI-powered image generation and transformation
+- [Rotation](https://docs.imgix.com/en-US/apis/rendering/rotation): Image rotation and orientation correction
+- [Background](https://docs.imgix.com/en-US/apis/rendering/background): Background color and styling parameters
+- [Border and Padding](https://docs.imgix.com/en-US/apis/rendering/border-and-padding): Border styling and padding controls
+- [Blending](https://docs.imgix.com/en-US/apis/rendering/blending): Blend modes and image compositing
+- [Watermark](https://docs.imgix.com/en-US/apis/rendering/watermark): Watermark positioning, sizing, opacity, and alignment
+- [Text](https://docs.imgix.com/en-US/apis/rendering/text): Text overlay parameters for adding text to images
+- [Typesetting Endpoint](https://docs.imgix.com/en-US/apis/rendering/typesetting-endpoint): Advanced text rendering with full typographic control
+- [Stylize](https://docs.imgix.com/en-US/apis/rendering/stylize): Artistic filters and effects (blur, halftone, noise, sharpen)
+- [Trim](https://docs.imgix.com/en-US/apis/rendering/trim): Edge trimming and auto-trim
+- [Animation](https://docs.imgix.com/en-US/apis/rendering/animation): Animated GIF frame control and optimization
+- [Mask Image](https://docs.imgix.com/en-US/apis/rendering/mask-image): Image masking and clipping paths
+- [Color Palette](https://docs.imgix.com/en-US/apis/rendering/color-palette): Color palette extraction from images
+- [Noise Reduction](https://docs.imgix.com/en-US/apis/rendering/noise-reduction): Noise filtering and smoothing
+- [PDF](https://docs.imgix.com/en-US/apis/rendering/pdf): PDF rendering and page selection
+- [License Plate Detection](https://docs.imgix.com/en-US/apis/rendering/license-plate-detection): Automatic license plate detection and blurring
+
+## Video API
+
+- [Imgix Video Parameters](https://docs.imgix.com/en-US/apis/video/imgix-video): Short-form video transformation parameters (resize, clip, watermark, format, encoding)
+- [Long-Form Video](https://docs.imgix.com/en-US/apis/video/long-form-video): Long-form video processing including thumbnails, storyboards, and GIF generation
+- [Video REST API](https://docs.imgix.com/en-US/apis/video/rest-api): REST API reference for video operations
+
+## Management API
+
+- [General Usage](https://docs.imgix.com/en-US/apis/management/general-usage): Making requests, authentication, and error handling
+- [Sources](https://docs.imgix.com/en-US/apis/management/sources): Creating and managing image sources via API
+- [Assets](https://docs.imgix.com/en-US/apis/management/assets): Asset management endpoints
+- [Purges](https://docs.imgix.com/en-US/apis/management/purges): Cache purging via API
+- [Reports](https://docs.imgix.com/en-US/apis/management/reports): Analytics and usage reporting via API
+
+## Setup Guides
+
+- [Creating Sources](https://docs.imgix.com/en-US/getting-started/setup/creating-sources): Set up Imgix sources to connect to your image storage
+- [Securing Assets](https://docs.imgix.com/en-US/getting-started/setup/securing-assets): URL signing and security configuration
+- [Purging Assets](https://docs.imgix.com/en-US/getting-started/setup/purging-assets): Remove stale content from Imgix caches
+- [Account Setup and Analytics](https://docs.imgix.com/en-US/getting-started/setup/account-setup-and-analytics): Account configuration, users, billing, and analytics
+- [Asset Manager](https://docs.imgix.com/en-US/getting-started/setup/asset-manager): Upload, browse, and manage assets with the Imgix Asset Manager
+
+## Source Creation by Provider
+
+- [Amazon S3](https://docs.imgix.com/en-US/getting-started/setup/creating-sources/amazon-s3): Connect an Amazon S3 bucket as an Imgix source
+- [Google Cloud Storage](https://docs.imgix.com/en-US/getting-started/setup/creating-sources/google-cloud-storage): Connect a GCS bucket as an Imgix source
+- [Microsoft Azure](https://docs.imgix.com/en-US/getting-started/setup/creating-sources/microsoft-azure): Connect Azure Blob Storage as an Imgix source
+- [DigitalOcean Spaces](https://docs.imgix.com/en-US/getting-started/setup/creating-sources/digitalocean): Connect DigitalOcean Spaces as an Imgix source
+- [Cloudflare R2](https://docs.imgix.com/en-US/getting-started/setup/creating-sources/cloudflare-r2): Connect Cloudflare R2 as an Imgix source
+- [Wasabi](https://docs.imgix.com/en-US/getting-started/setup/creating-sources/wasabi): Connect Wasabi storage as an Imgix source
+- [Web Folder](https://docs.imgix.com/en-US/getting-started/setup/creating-sources/web-folder): Connect a web-accessible folder as an Imgix source
+- [Web Proxy](https://docs.imgix.com/en-US/getting-started/setup/creating-sources/web-proxy): Use Imgix as a proxy for any publicly accessible image URL
+
+## Best Practices
+
+- [Improving Site Performance](https://docs.imgix.com/en-US/getting-started/best-practices/improving-site-performance): Optimize image delivery for faster page loads
+- [Improving SEO Traffic](https://docs.imgix.com/en-US/getting-started/best-practices/improving-seo-traffic): Image SEO best practices
+- [CDN Guidelines](https://docs.imgix.com/en-US/getting-started/best-practices/cdn-guidelines): Best practices for using Imgix with CDNs
+- [A Developer's Guide to Image Types](https://docs.imgix.com/en-US/getting-started/best-practices/dev-guide-image-types): Choosing the right image format (JPEG, PNG, WebP, AVIF, GIF)
+- [Fingerprinting Images](https://docs.imgix.com/en-US/getting-started/best-practices/fingerprinting-images): Cache busting with URL fingerprinting
+- [Normalizing Video Input](https://docs.imgix.com/en-US/getting-started/best-practices/normalizing-video-input): Preparing video files for optimal processing
+
+## Tutorials
+
+- [Responsive Image Gallery in React](https://docs.imgix.com/en-US/getting-started/tutorials/responsive-design/how-to-build-a-responsive-image-gallery-in-react): Build responsive image galleries with React and Imgix
+- [Responsive Images with srcset](https://docs.imgix.com/en-US/getting-started/tutorials/responsive-design/responsive-images-with-srcset): Implement responsive images with srcset
+- [Using Imgix with picture](https://docs.imgix.com/en-US/getting-started/tutorials/responsive-design/using-imgix-with-picture): Implement responsive images with the picture element
+- [React Native Integration](https://docs.imgix.com/en-US/getting-started/tutorials/responsive-design/rendering-images-in-react-native-faster-with-imgix): Use Imgix with React Native apps
+- [Client Hints](https://docs.imgix.com/en-US/getting-started/tutorials/responsive-design/next-generation-responsive-images-with-client-hints): Automatic responsive images using client hints
+- [Automatic Point of Interest Cropping](https://docs.imgix.com/en-US/getting-started/tutorials/cropping-and-enhancement/automatic-point-of-interest-cropping): AI-powered smart cropping
+- [Focal Point Cropping](https://docs.imgix.com/en-US/getting-started/tutorials/cropping-and-enhancement/focal-point-cropping): Manual focal point control for precise crops
+- [Dynamic Masking](https://docs.imgix.com/en-US/getting-started/tutorials/cropping-and-enhancement/dynamic-masking): Apply masks and clipping paths to images
+- [Dynamically Blending Images](https://docs.imgix.com/en-US/getting-started/tutorials/cropping-and-enhancement/dynamically-blending-images): Composite multiple images together
+- [Best Practices for Vector Assets](https://docs.imgix.com/en-US/getting-started/tutorials/design-elements-and-composition/best-practices-for-creating-vector-assets): Work with SVG and vector images
+- [Dynamically Coloring eCommerce Products](https://docs.imgix.com/en-US/getting-started/tutorials/design-elements-and-composition/dyamically-coloring-ecommerce-products): Change product colors dynamically in images
+- [Managing Brand Assets from PDFs](https://docs.imgix.com/en-US/getting-started/tutorials/design-elements-and-composition/managing-brand-assets-from-pdfs): Render and transform PDF documents
+- [Imgix with Next.js](https://docs.imgix.com/en-US/getting-started/tutorials/developer-guides/imgix-with-nextjs): Integrating Imgix with Next.js applications
+- [Generating Social Images](https://docs.imgix.com/en-US/getting-started/tutorials/developer-guides/generating-social-images-with-imgix): Generate Open Graph and social media images dynamically
+- [Automatically Add Assets Using AWS Lambda](https://docs.imgix.com/en-US/getting-started/tutorials/developer-guides/automatically-add-assets-using-aws-lambda): Automate image workflows with AWS Lambda and Imgix
+
+## References
+
+- [Supported File Formats](https://docs.imgix.com/en-US/references/supported-file-formats): Input and output format support
+- [HTTP Status Codes](https://docs.imgix.com/en-US/references/http-status-codes): Status code reference for Imgix responses
+- [API Rate Limits](https://docs.imgix.com/en-US/references/api-rate-limits): Rate limiting documentation
+- [Security and Compliance](https://docs.imgix.com/en-US/references/security-and-compliance): Security practices and compliance information
+- [Billing Overview](https://docs.imgix.com/en-US/references/billing-overview): Pricing and billing information
+- [Glossary](https://docs.imgix.com/en-US/references/glossary): Imgix terminology definitions
+- [Changelog](https://docs.imgix.com/en-US/references/changelog): API changes and release notes
+
+## Libraries and SDKs
+
+- [Libraries Overview](https://docs.imgix.com/en-US/libraries): All official SDKs, plugins, and integration guides
+- [JavaScript Core](https://github.com/imgix/js-core): JavaScript client library for generating Imgix URLs
+- [imgix.js](https://github.com/imgix/imgix.js): Responsive images in the browser
+- [React](https://github.com/imgix/react-imgix): React component for displaying Imgix images
+- [Vue](https://github.com/imgix/vue): Vue.js integration
+- [Rails](https://github.com/imgix/imgix-rails): Ruby on Rails gem for Imgix
+- [PHP](https://github.com/imgix/imgix-php): PHP client library
+- [Ruby](https://github.com/imgix/imgix-rb): Ruby gem for Imgix URL generation
+- [Python](https://github.com/imgix/imgix-python): Python client library
+- [Swift](https://github.com/imgix/imgix-swift): Swift client library for iOS/macOS
+- [Java](https://github.com/imgix/imgix-java): Java client library
+- [C#](https://github.com/imgix/imgix-csharp): C# client library for .NET
+- [Go](https://github.com/imgix/imgix-go): Go client library
+
+## Plugins and Integrations
+
+- [Shopify Integration Guide](https://github.com/imgix/shopify-integration-guide): Integrate Imgix with Shopify storefronts
+- [BigCommerce Integration Guide](https://github.com/imgix/bigcommerce-integration-guide): Integrate Imgix with BigCommerce
+- [Contentful](https://github.com/imgix/contentful): Imgix Asset Manager plugin for Contentful
+- [Strapi](https://github.com/imgix/strapi-plugin-imgix): Imgix Media Library plugin for Strapi
+- [Hygraph](https://github.com/imgix/imgix-hygraph): Imgix Asset Manager plugin for Hygraph
+- [Salesforce Commerce Cloud](https://github.com/imgix/sf-commerce-cloud): Imgix integration for Salesforce Commerce Cloud
+- [Magento](https://github.com/imgix/magento): Imgix Asset Manager for Magento storefronts
+- [Figma](https://www.figma.com/community/plugin/1158160069476108739/imgix-asset-manager): Imgix Asset Manager plugin for Figma
+
+## Optional
+
+- [Optimize Images for Static Sites](https://docs.imgix.com/en-US/getting-started/best-practices/optimize-and-boost-static-site): Boost performance of statically generated sites
+- [Ensuring Origin Deliverability](https://docs.imgix.com/en-US/getting-started/best-practices/ensuring-origin-deliverability): Troubleshoot origin connectivity issues
+- [Understanding User Agents and Referers](https://docs.imgix.com/en-US/getting-started/best-practices/understanding-user-agents-and-referers): How Imgix handles user agent and referer headers
+- [API Playground](https://docs.imgix.com/en-US/apis/management/api-playground): Interactive tool for testing Management API calls
+- [Device Pixel Ratio](https://docs.imgix.com/en-US/apis/rendering/device-pixel-ratio): DPR handling for retina displays
+- [URL Expiration](https://docs.imgix.com/en-US/apis/rendering/expiration): Set expiration times on signed URLs
+- [Demo Source Guide](https://docs.imgix.com/en-US/getting-started/setup/demo-source-guide): Try Imgix with a pre-configured demo source
+- [Imgix Product Page](https://www.imgix.com/how-it-works): Product capabilities and features on imgix.com
+- [Pricing](https://www.imgix.com/pricing): Plans and pricing information on imgix.com
