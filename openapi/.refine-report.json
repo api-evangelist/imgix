@@ -1,7 +1,7 @@
 {
   "provider": "imgix",
   "sources": [
-    "imgix-sources-api-openapi.yml"
+    "_original/imgix-openapi.yml"
   ],
   "outputs": [
     "imgix-sources-api-openapi.yml"
@@ -9,6 +9,19 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "imgix-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "imgix-openapi.yml: tagged paths GET /api/v1/sources -> Sources",
+    "imgix-openapi.yml: tagged paths POST /api/v1/sources -> Sources",
+    "imgix-openapi.yml: tagged paths GET /api/v1/sources/{source_id} -> Sources",
+    "imgix-openapi.yml: tagged paths PATCH /api/v1/sources/{source_id} -> Sources",
+    "imgix-openapi.yml: tagged paths POST /api/v1/sources/{source_id}/purge -> Sources",
+    "imgix-openapi.yml: tagged paths GET /api/v1/sources/{source_id}/assets -> Sources",
+    "imgix-openapi.yml: declared missing tag: Sources",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "imgix-sources-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }
