@@ -56,8 +56,6 @@ apis:
     url: https://docs.imgix.com/en-US/apis/rendering/overview
   - type: GettingStarted
     url: https://docs.imgix.com/
-  - url: graphql/imgix-graphql.md
-    type: GraphQL
 - aid: imgix:imgix-sources-api
   name: Imgix Sources API
   description: The Sources API from Imgix — 4 operation(s) for sources.
