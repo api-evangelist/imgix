@@ -237,3 +237,72 @@ plans:
       - name: Custom workflows
       - name: Advanced controls
       - name: Dedicated support
+x-canonical:
+  generated: '2026-10-08'
+  vocabulary: all/0-working/economics/plans-canonical.yml
+  models:
+  - hybrid
+  - subscription
+  units:
+  - credit
+  - period
+  plans:
+  - name: Starter
+    access: paid
+    model: hybrid
+    model_how: derived
+    units:
+    - credit
+    - period
+    periods:
+    - month
+    - per-use
+    - year
+  - name: Basic
+    access: paid
+    model: hybrid
+    model_how: derived
+    units:
+    - credit
+    - period
+    periods:
+    - month
+    - per-use
+  - name: Midrange
+    access: paid
+    model: hybrid
+    model_how: derived
+    units:
+    - credit
+    - period
+    periods:
+    - month
+    - per-use
+  - name: Growth
+    access: paid
+    model: hybrid
+    model_how: derived
+    units:
+    - credit
+    - period
+    periods:
+    - month
+    - per-use
+  - name: Growth Plus
+    access: paid
+    model: hybrid
+    model_how: derived
+    units:
+    - credit
+    - period
+    periods:
+    - month
+    - per-use
+  - name: Enterprise
+    access: enterprise
+    model: subscription
+    model_how: derived
+    units:
+    - period
+    periods:
+    - year
