@@ -1,0 +1,42 @@
+edges:
+- partner_name: Contentful (own)
+  partner: contentful
+  partner_match: mirror
+  mirror_match: domain
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: own
+  evidence: https://www.contentful.com/marketplace/imgix/
+  mirror_of: contentful/integrations/contentful-integration-edges.yml
+  apps:
+  - imgix App
+  listing_count: 1
+  detected: '2026-10-15'
+  detected_by: mirror-platform-listings.py
+- partner_name: Strapi (own)
+  partner: strapi
+  partner_match: mirror
+  mirror_match: domain
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: own
+  evidence: https://market.strapi.io/plugins/strapi-plugin-imgix
+  mirror_of: strapi/integrations/strapi-integration-edges.yml
+  apps:
+  - imgix
+  listing_count: 1
+  detected: '2026-10-15'
+  detected_by: mirror-platform-listings.py
+  category: Strapi plugin
+generated: '2026-10-15'
+method: searched
+checked:
+- contentful/integrations/contentful-integration-edges.yml
+- strapi/integrations/strapi-integration-edges.yml
+source:
+- contentful/integrations/contentful-integration-edges.yml
+- strapi/integrations/strapi-integration-edges.yml
